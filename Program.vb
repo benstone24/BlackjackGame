@@ -26,18 +26,9 @@ Module Program
 
             WriteLine("Your bank balance: £" & Balance)
             WriteLine("How much do you want to bet?")
-            If ReadLine() > 2000000000 Then
-                WriteLine("Bet is too big! Ending game to avoid technical issues.")
-                For i = 1 To 69
-                    WriteLine("L")
-                    Thread.Sleep(100)
-                Next
-                End
-            End If
-
             Bet = ReadLine()
-                Title = False
-                PlayerCard1 = Random.Next(1, 12)
+            Title = False
+            PlayerCard1 = Random.Next(1, 12)
             Thread.Sleep(1000)
             Clear()
             'For i = 1 To 3 Script Disabled
@@ -127,7 +118,7 @@ Module Program
             BankTotal = BankCard1 + BankCard2
             WriteLine("Bank's cards total to " & BankTotal & " .")
             Thread.Sleep(1000)
-            If Random.Next(1, 3) = 5 And PlayerTotal > BankTotal Then 'Bank has 1/2 chance of twisting if bank is losing
+            If Random.Next(1, 3) = 2 And PlayerTotal > BankTotal Then 'Bank has 1/2 chance of twisting if bank is losing
                 WriteLine("Banker twisted!")
                 BankExtra = Random.Next(1, 12)
                 WriteLine("Choosing a extra card for the banker...")
@@ -177,7 +168,7 @@ Module Program
                 WriteLine("You ended the game with " & PlayerTotal)
                 End
             End If
-
+            PlayerTotal = 0
             If BankTotal >= PlayerTotal Then
                 WriteLine("You lost.")
                 Balance = Balance - Bet
@@ -189,6 +180,20 @@ Module Program
             WriteLine("You now have £" & Balance)
             If Balance <= 0 Then
                 WriteLine("You ran out of money! Game over.")
+                If Balance < 0 Then
+                    WriteLine("You owe " & Balance & " to the game!")
+                    WriteLine("if u no pay computer will take u 2 court")
+                    WriteLine("Enter your card number below to pay the bank £" & Balance + Balance * 2 & " .")
+                    ReadLine()
+                    WriteLine("Enter your Security Number to prove your purchase.")
+                    ReadLine()
+                    WriteLine("Enter expiry date")
+                    ReadLine()
+                    WriteLine("Enter cardholder name")
+                    ReadLine()
+                    WriteLine("Done! You now owe the game £0.")
+                    WriteLine("Your court appearance is the 12th October 2021 when Sam is 15")
+                End If
                 End
             End If
             countdown = 5
@@ -196,7 +201,6 @@ Module Program
             Clear()
             WriteLine("You have £" & Balance)
             WriteLine("Would you Like to continue? (y/n)")
-            Thread.Sleep(5000)
             Playing = ReadLine()
 
 

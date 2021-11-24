@@ -17,6 +17,24 @@ Module Program
     Dim countdown As Integer
     Dim Bet As Integer
     Dim CanTwist As Boolean = True
+    Dim PictureCard As Boolean
+
+    Private Function Namecard(ByVal CardNumber As Integer) As String
+        Dim cardname As String
+        Select Case CardNumber
+            Case 1
+                cardname = "Ace"
+            Case 11
+                cardname = "Jack"
+            Case 12
+                cardname = "King"
+            Case 13
+                cardname = "Queen"
+            Case Else
+                cardname = CardNumber
+        End Select
+        Return cardname
+    End Function
     Sub Main(args As String())
 
 
@@ -28,43 +46,43 @@ Module Program
             WriteLine("How much do you want to bet?")
             Bet = ReadLine()
             Title = False
-            PlayerCard1 = Random.Next(1, 12)
+            PlayerCard1 = Random.Next(1, 14)
             Thread.Sleep(1000)
             Clear()
-            'For i = 1 To 3 Script Disabled
-            'WriteLine("Your 1st Card: .")
-            'WriteLine("Your 2nd Card: ???")
-            'Thread.Sleep(500)
-            'Clear()
-            'WriteLine("Your 1st Card: ..")
-            'WriteLine("Your 2nd Card: ???")
-            'Thread.Sleep(500)
-            'Clear()
-            'WriteLine("Your 1st Card: ...")
-            'WriteLine("Your 2nd Card: ???")
-            'Thread.Sleep(500)
-            'Clear()
-            'Next
+            For i = 1 To 3
+                WriteLine("Your 1st Card: .")
+                WriteLine("Your 2nd Card: ???")
+                Thread.Sleep(500)
+                Clear()
+                WriteLine("Your 1st Card: ..")
+                WriteLine("Your 2nd Card: ???")
+                Thread.Sleep(500)
+                Clear()
+                WriteLine("Your 1st Card: ...")
+                WriteLine("Your 2nd Card: ???")
+                Thread.Sleep(500)
+                Clear()
+            Next
             WriteLine("Your 1st Card: " & PlayerCard1)
             WriteLine("Your 2nd Card: ???")
 
-            PlayerCard2 = Random.Next(1, 12)
+            PlayerCard2 = Random.Next(1, 14)
             Clear()
             Thread.Sleep(50)
-            ' For i = 1 To 3 Script Disabled
-            '   WriteLine("Your 1st Card: " & PlayerCard1)
-            'WriteLine("Your 2nd Card: .")
-            'Thread.Sleep(500)
-            'Clear()
-            'WriteLine("Your 1st Card: " & PlayerCard1)
-            'WriteLine("Your 2nd Card: ..")
-            'Thread.Sleep(500)
-            'Clear()
-            'WriteLine("Your 1st Card: " & PlayerCard1)
-            'WriteLine("Your 2nd Card: ...")
-            'Thread.Sleep(500)
-            'Clear()
-            'Next
+            For i = 1 To 3
+                WriteLine("Your 1st Card: " & PlayerCard1)
+                WriteLine("Your 2nd Card: .")
+                Thread.Sleep(500)
+                Clear()
+                WriteLine("Your 1st Card: " & PlayerCard1)
+                WriteLine("Your 2nd Card: ..")
+                Thread.Sleep(500)
+                Clear()
+                WriteLine("Your 1st Card: " & PlayerCard1)
+                WriteLine("Your 2nd Card: ...")
+                Thread.Sleep(500)
+                Clear()
+            Next
             WriteLine("Your 1st Card: " & PlayerCard1)
             WriteLine("Your 2nd Card: " & PlayerCard2)
             Thread.Sleep(1000)
@@ -74,44 +92,44 @@ Module Program
 
             Thread.Sleep(3000)
             Clear()
-            BankCard1 = Random.Next(1, 12)
-            'For i = 1 To 3 Script Disabled
-            'WriteLine("Bank's 1st Card: .")
-            'WriteLine("Bank's 2nd Card: ???")
-            'Thread.Sleep(500)
-            'Clear()
-            'WriteLine("Bank's 1st Card: ..")
-            'WriteLine("Bank's 2nd Card: ???")
-            'Thread.Sleep(500)
-            'Clear()
-            'WriteLine("Bank's 1st Card: ...")
-            'WriteLine("Bank's 2nd Card: ???")
-            'Thread.Sleep(500)
-            'Clear()
-            'Next
+            BankCard1 = Random.Next(1, 14)
+            For i = 1 To 3
+                WriteLine("Bank's 1st Card: .")
+                WriteLine("Bank's 2nd Card: ???")
+                Thread.Sleep(500)
+                Clear()
+                WriteLine("Bank's 1st Card: ..")
+                WriteLine("Bank's 2nd Card: ???")
+                Thread.Sleep(500)
+                Clear()
+                WriteLine("Bank's 1st Card: ...")
+                WriteLine("Bank's 2nd Card: ???")
+                Thread.Sleep(500)
+                Clear()
+            Next
             WriteLine("Bank's 1st Card: " & BankCard1)
             WriteLine("Bank's 2nd Card: ???")
 
-            PlayerCard2 = Random.Next(1, 12)
+            PlayerCard2 = Random.Next(1, 14)
             Thread.Sleep(1500)
             Clear()
 
 
-            BankCard2 = Random.Next(1, 12)
-            'For i = 1 To 3 ' Script Disabled
-            '   WriteLine("Bank's 1st Card: " & BankCard1)
-            '  WriteLine("Bank's 2nd Card: .")
-            ' Thread.Sleep(500)
-            'Clear()
-            'WriteLine("Bank's 1st Card: " & BankCard1)
-            'WriteLine("Bank's 2nd Card: ..")
-            'Thread.Sleep(500)
-            'Clear()
-            'WriteLine("Bank's 1st Card: " & BankCard1)
-            'WriteLine("Bank's 2nd Card: ...")
-            'Thread.Sleep(500)
-            'Clear()
-            'Next
+            BankCard2 = Random.Next(1, 14)
+            For i = 1 To 3
+                WriteLine("Bank's 1st Card: " & BankCard1)
+                WriteLine("Bank's 2nd Card: .")
+                Thread.Sleep(500)
+                Clear()
+                WriteLine("Bank's 1st Card: " & BankCard1)
+                WriteLine("Bank's 2nd Card: ..")
+                Thread.Sleep(500)
+                Clear()
+                WriteLine("Bank's 1st Card: " & BankCard1)
+                WriteLine("Bank's 2nd Card: ...")
+                Thread.Sleep(500)
+                Clear()
+            Next
             WriteLine("Bank's 1st Card: " & BankCard1)
             WriteLine("Bank's 2nd Card: " & BankCard2)
             WriteLine("Your total: " & PlayerTotal)
@@ -120,13 +138,13 @@ Module Program
             Thread.Sleep(1000)
             If Random.Next(1, 3) = 2 And PlayerTotal > BankTotal Then 'Bank has 1/2 chance of twisting if bank is losing
                 WriteLine("Banker twisted!")
-                BankExtra = Random.Next(1, 12)
+                BankExtra = Random.Next(1, 14)
                 WriteLine("Choosing a extra card for the banker...")
                 Thread.Sleep(3000)
                 WriteLine("Banker got card " & BankExtra & " !")
                 WriteLine("Your total: " & PlayerTotal)
-                WriteLine("Bank total: " & BankTotal)
                 BankTotal = BankTotal + BankExtra
+                WriteLine("Bank total: " & BankTotal)
 
                 If BankTotal > 21 Then
                     WriteLine("Banker bust! You win.")
@@ -138,7 +156,7 @@ Module Program
 
             If PlayerTotal + 11 > BankTotal Or BankTotal >= 21 Then
             Else
-                CanTwist = False
+
             End If
 
             If BankTotal >= PlayerTotal And CanTwist = True Then
@@ -146,7 +164,7 @@ Module Program
                 If ReadLine() = "y" Then
                     WriteLine("Twisting...")
                     Thread.Sleep(5000)
-                    PlayerExtra = Random.Next(1, 12)
+                    PlayerExtra = Random.Next(1, 14)
                     WriteLine("You got " & PlayerExtra & " .")
                     PlayerTotal = PlayerTotal + PlayerExtra
                     WriteLine("Your new total: " & PlayerTotal)
@@ -155,6 +173,10 @@ Module Program
                     If PlayerTotal > 21 Then
                         WriteLine("You bust! You lose.")
                         PlayerTotal = 0
+                    End If
+                    If BankTotal > 21 Then
+                        WriteLine("Banker bust! You win.")
+                        BankTotal = 0
                     End If
                 End If
 
@@ -168,7 +190,11 @@ Module Program
                 WriteLine("You ended the game with " & PlayerTotal)
                 End
             End If
-            PlayerTotal = 0
+            If BankTotal > 21 Then
+                WriteLine("Banker bust! You win.")
+                BankTotal = 0
+            End If
+
             If BankTotal >= PlayerTotal Then
                 WriteLine("You lost.")
                 Balance = Balance - Bet
@@ -183,7 +209,7 @@ Module Program
                 If Balance < 0 Then
                     WriteLine("You owe " & Balance & " to the game!")
                     WriteLine("if u no pay computer will take u 2 court")
-                    WriteLine("Enter your card number below to pay the bank £" & Balance + Balance * 2 & " .")
+                    WriteLine("Enter your card number below to pay the bank £" & Balance & " .")
                     ReadLine()
                     WriteLine("Enter your Security Number to prove your purchase.")
                     ReadLine()
@@ -192,7 +218,7 @@ Module Program
                     WriteLine("Enter cardholder name")
                     ReadLine()
                     WriteLine("Done! You now owe the game £0.")
-                    WriteLine("Your court appearance is the 12th October 2021 when Sam is 15")
+                    WriteLine("Your court appearance is the 12th October 2022 when Sam is 16")
                 End If
                 End
             End If
